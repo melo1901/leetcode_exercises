@@ -1,5 +1,6 @@
-from Arrays_and_Hashing.leetcode217 import Solution
+from Arrays_and_Hashing.leetcode import Solution
 
-nums = [1,2,3,4]
+#nums = [1,2,3,4]
+s, t = "rat", "car"
 solution = Solution()
-print(solution.containsDuplicate(nums))
+print(solution.isAnagram(s,t))
