@@ -1,4 +1,6 @@
-class Solution(object):
+from typing import List
+
+class Solution():
     def containsDuplicate(self, nums):
         """
         :type nums: List[int]
@@ -28,5 +30,14 @@ class Solution(object):
             return True
         return False
 
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dictionary = {}
+        for i in range(0,len(nums)):
+            result = target - nums[i]
+            if(result in dictionary):
+                return [dictionary[result], i]
+            else:
+                dictionary[nums[i]] = i
+            
             
             
