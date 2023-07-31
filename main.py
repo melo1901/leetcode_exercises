@@ -1,7 +1,8 @@
 from Arrays_and_Hashing.leetcode import Solution
 
-nums = [3,2,4]
+nums = [4,1,-1,2,-1,2,3]
 target = 6
 s, t = "rat", "car"
 strs = ["eat","tea","tan","ate","nat","bat"]
-print(Solution().groupAnagrams(strs))
+k = 2
+print(Solution().topKFrequent(nums, k))

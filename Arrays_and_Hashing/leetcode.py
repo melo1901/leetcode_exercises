@@ -56,4 +56,16 @@ class Solution():
             else:
                 dictionary[tuple(letter_count)].append(i)
         return list(dictionary.values())
-               
+    
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        dictionary = {}
+        for i in range(len(nums)):
+            if nums[i] in dictionary:
+                dictionary[nums[i]] += 1
+            else:
+                dictionary[nums[i]] = 1
+        temp = sorted(dictionary, key=lambda k: dictionary[k], reverse=True)
+        result = []
+        for i in range(k):
+            result.append(temp[i])      
+        return result
