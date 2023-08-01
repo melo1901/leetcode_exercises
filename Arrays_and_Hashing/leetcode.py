@@ -69,3 +69,19 @@ class Solution():
         for i in range(k):
             result.append(temp[i])      
         return result
+    
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        dictionary = {}
+        length = len(nums)
+        prefix = [0] * length
+        prefix.insert(0,1)
+        postfix = [0] * length
+        postfix.insert(length, 1)
+        for i in range(length):
+            prefix[i+1] = (nums[i]*prefix[i])
+            postfix[length - i - 1] = (nums[length - 1 - i]*postfix[length - i])
+        result = []
+        for i in range(length):
+            result.append(prefix[i]*postfix[i+1])
+        return result
+        
