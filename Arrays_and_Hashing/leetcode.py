@@ -1,4 +1,5 @@
 from typing import List
+import string
 
 class Solution():
     def containsDuplicate(self, nums):
@@ -84,4 +85,31 @@ class Solution():
         for i in range(length):
             result.append(prefix[i]*postfix[i+1])
         return result
+    
         
+    """
+    @param: strs: a list of strings
+    @return: encodes a list of strings to a single string.
+    """
+    def encode(self, strs):
+        result = ""
+        for i in range(len(strs)):
+            if strs[i] == ":":
+                result += ":"
+            if i < (len(strs) - 1):
+                result += strs[i] + ":;"
+            else:
+                result += strs[i]
+        return result
+
+    """
+    @param: str: A string
+    @return: decodes a single string to a list of strings
+    """
+    def decode(self, str: string):
+        result = []
+        result = str.split(":;")
+        for i in range(len(result)):
+            if result[i] == "::":
+                result[i] = ":"
+        return result
