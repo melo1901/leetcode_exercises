@@ -1,5 +1,6 @@
 from typing import List
 import string
+import re
 
 class Solution():
     def containsDuplicate(self, nums):
@@ -113,3 +114,10 @@ class Solution():
             if result[i] == "::":
                 result[i] = ":"
         return result
+    
+    def interpret(self, command: str) -> str:
+        result = command.replace("()", "o")
+        result = result.replace("(al)", "al")
+        return result
+                
+        

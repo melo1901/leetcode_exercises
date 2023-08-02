@@ -6,4 +6,5 @@ s, t = "rat", "car"
 strs = ["we", "say", ":", "yes"]
 str = "we:;say:;;:;yes"
 k = 2
-print(Solution().decode(str))
+command = "G()(al)"
+print(Solution().interpret(command))
