@@ -136,5 +136,16 @@ class Solution():
                 hash_col[c].add(board[r][c])
                 hash_squares[(r // 3, c // 3)].add(board[r][c])
         return True
-                
+    
+    def checkValid(self, matrix: List[List[int]]) -> bool:
+        hash_row = collections.defaultdict(set)
+        hash_col = collections.defaultdict(set)
         
+        for r in range(len(matrix)):
+            for c in range(len(matrix)):
+                if (matrix[r][c] in hash_row[r] or
+                    matrix[r][c] in hash_col[c]):
+                    return False
+                hash_row[r].add(matrix[r][c])
+                hash_col[c].add(matrix[r][c])
+        return True
