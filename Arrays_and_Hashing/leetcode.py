@@ -3,6 +3,7 @@ import string
 import collections
 
 class Solution():
+    # leetcode 217
     def containsDuplicate(self, nums):
         """
         :type nums: List[int]
@@ -15,6 +16,7 @@ class Solution():
             seen.add(num)
         return False
     
+    # leetcode 242
     def isAnagram(self, s, t):
         """
         :type s: str
@@ -38,6 +40,7 @@ class Solution():
         else:
             return False
 
+    # leetcode 1
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         dictionary = {}
         for i in range(0,len(nums)):
@@ -47,6 +50,7 @@ class Solution():
             else:
                 dictionary[nums[i]] = i
 
+    # leetcode 49
     def groupAnagrams(self, strs: List[str]):
         dictionary = {}
         for i in strs:
@@ -59,6 +63,7 @@ class Solution():
                 dictionary[tuple(letter_count)].append(i)
         return list(dictionary.values())
     
+    # leetcode 347
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         dictionary = {}
         for i in range(len(nums)):
@@ -72,6 +77,7 @@ class Solution():
             result.append(temp[i])      
         return result
     
+    # leetcode 238
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         dictionary = {}
         length = len(nums)
@@ -87,7 +93,8 @@ class Solution():
             result.append(prefix[i]*postfix[i+1])
         return result
     
-        
+     
+    # leetcode 271   
     """
     @param: strs: a list of strings
     @return: encodes a list of strings to a single string.
@@ -115,11 +122,13 @@ class Solution():
                 result[i] = ":"
         return result
     
+    # leetcode 1678
     def interpret(self, command: str) -> str:
         result = command.replace("()", "o")
         result = result.replace("(al)", "al")
         return result
     
+    # leetcode 36
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         hash_row = collections.defaultdict(set)
         hash_col = collections.defaultdict(set)
@@ -137,6 +146,7 @@ class Solution():
                 hash_squares[(r // 3, c // 3)].add(board[r][c])
         return True
     
+    # leetcode 2133
     def checkValid(self, matrix: List[List[int]]) -> bool:
         hash_row = collections.defaultdict(set)
         hash_col = collections.defaultdict(set)
