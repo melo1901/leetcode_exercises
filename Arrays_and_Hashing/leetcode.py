@@ -1,6 +1,6 @@
 from typing import List
 import string
-import re
+import collections
 
 class Solution():
     def containsDuplicate(self, nums):
@@ -119,5 +119,22 @@ class Solution():
         result = command.replace("()", "o")
         result = result.replace("(al)", "al")
         return result
+    
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        hash_row = collections.defaultdict(set)
+        hash_col = collections.defaultdict(set)
+        hash_squares = collections.defaultdict(set)
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == ".":
+                    continue
+                if (board[r][c] in hash_row[r] or 
+                    board[r][c] in hash_col[c] or
+                    board[r][c] in hash_squares[r // 3, c // 3]):
+                    return False
+                hash_row[r].add(board[r][c])
+                hash_col[c].add(board[r][c])
+                hash_squares[(r // 3, c // 3)].add(board[r][c])
+        return True
                 
         
