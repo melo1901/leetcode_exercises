@@ -193,6 +193,4 @@ class Solution():
                     n += 1
                 if length > longest:
                     longest = length
-        return longest            
-                
-                
+        return longest 

@@ -1,8 +1,8 @@
-from Arrays_and_Hashing.leetcode import Solution
+from Two_pointers.leetcode import Solution
 
 nums = [0,0]
 target = 6
-s, t = "rat", "car"
+s = "A man, a plan, a canal: Panama"
 strs = ["we", "say", ":", "yes"]
 str = "we:;say:;;:;yes"
 k = 2
@@ -16,4 +16,4 @@ board = [["8","3",".",".","7",".",".",".","."]
         ,[".","6",".",".",".",".","2","8","."]
         ,[".",".",".","4","1","9",".",".","5"]
         ,[".",".",".",".","8",".",".","7","9"]]
-print(Solution().longestConsecutive(nums))
+print(Solution().isPalindrome(s))
