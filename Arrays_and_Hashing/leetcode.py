@@ -159,3 +159,40 @@ class Solution():
                 hash_row[r].add(matrix[r][c])
                 hash_col[c].add(matrix[r][c])
         return True
+
+    # leetcode 128
+    def longestConsecutive(self, nums: List[int]) -> int:
+        # if len(set(nums)) == 1:
+        #     return 1
+        # for i in range(len(nums)):
+        #     if i == 0:
+        #         prev = nums[i]
+        #         count += 1
+        #     else:
+        #         if (nums[i] == (prev + 1)):
+        #             prev = nums[i]
+        #             count += 1
+        #             if count > highest:
+        #                 highest = count
+        #         else:
+        #             prev = nums[i]
+        #             count = 1
+        #             if count > highest:
+        #                 highest = count
+        # return highest
+        
+        # better way of doing things
+        nums = set(nums)
+        longest = 0
+        length = 0
+        for n in nums:
+            if (n - 1) not in nums:
+                length = 1
+                while (n + 1) in nums:
+                    length += 1
+                    n += 1
+                if length > longest:
+                    longest = length
+        return longest            
+                
+                
