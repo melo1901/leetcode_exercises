@@ -18,4 +18,5 @@ board = [["8","3",".",".","7",".",".",".","."]
         ,[".",".",".",".","8",".",".","7","9"]]
 numbers = [2,3,4]
 target = 6
-print(Solution().threeSum(nums))
+height = [2,3,4,5,18,17,6]
+print(Solution().maxArea(height))

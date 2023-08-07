@@ -79,3 +79,29 @@ class Solution():
                 elif(sum < 0):
                     j += 1
         return result
+    
+    # leetcode 11
+    def maxArea(self, height: List[int]) -> int:
+        i = 0
+        j = len(height) - 1
+        area = 0
+        highest = 0
+        while i < j:
+            area = j - i
+            if height[i] > height[j]:
+                area = area * height[j]
+                j -= 1
+                if area > highest:
+                    highest = area
+            elif height[i] < height[j]:
+                area = area * height[i]
+                i += 1
+                if area > highest:
+                    highest = area
+            elif height[i] == height[j]:
+                area = area * height[i]
+                i += 1
+                if area > highest:
+                    highest = area
+        return highest
+            
