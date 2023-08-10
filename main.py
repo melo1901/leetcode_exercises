@@ -1,4 +1,5 @@
 from Stack.leetcode import Solution
+from Stack.leetcode import MinStack
 
 target = 6
 s = "([])"
@@ -18,4 +19,8 @@ board = [["8","3",".",".","7",".",".",".","."]
 numbers = [2,3,4]
 target = 6
 height = [4,2,3]
-print(Solution().isValid(s))
+obj = MinStack()
+obj.push(1)
+obj.push(10)
+print(obj.getMin())
+#print(Solution().isValid(s))
