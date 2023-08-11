@@ -17,54 +17,76 @@ class Solution():
     
     # leetcode 150
     def evalRPN(self, tokens: List[str]) -> int:
+        # first solution
+        
+        # stack = []
+        # result, flag= 0, 0
+        # for i in range(len(tokens)):
+        #     if len(tokens) == 1 and stack == []:
+        #         return int(tokens[i])
+        #     try:
+        #         if -200 <= int(tokens[i]) <= 200:
+        #             stack.append(int(tokens[i]))
+        #             flag += 1
+        #     except ValueError:                
+        #         if tokens[i] == "+":
+        #             if flag >= 2:
+        #                 result = stack.pop()
+        #                 result = stack.pop() + result
+        #             else:
+        #                 result = stack.pop() + stack.pop()
+        #             stack.append(result)
+        #             flag -= 1
+        #         elif tokens[i] == "-":
+        #             if flag >= 2:
+        #                 result = stack.pop()
+        #                 result  = stack.pop() - result
+        #             else:
+        #                 result = stack.pop() - stack.pop()
+        #             stack.append(result)
+        #             flag -= 1
+        #         elif tokens[i] == "/":
+        #             if flag >= 2:
+        #                 result = stack.pop()
+        #                 result = int(stack.pop() / result)
+        #             else:
+        #                 result += int(stack.pop() / stack.pop())
+        #             stack.append(result)
+        #             flag -= 1
+        #         elif tokens[i] == "*":
+        #             if flag >= 2:
+        #                 result = stack.pop()
+        #                 result = stack.pop() * result
+        #             else:
+        #                 result = stack.pop() * stack.pop()
+        #             stack.append(result)
+        #             flag -= 1
+        #     i += 1
+        # return result
+        
+        # optimalised solution
+        
         stack = []
-        result, temp, flag = 0, 0, 0
-        while tokens != []:
-            if len(tokens) == 1 and stack == []:
-                return int(tokens[0])
-            try:
-                if -200 <= int(tokens[0]) <= 200:
-                    stack.append(int(tokens[0]))
-                    tokens.remove(tokens[0])
-                    flag += 1
-            except ValueError:                
-                if tokens[0] == "+":
-                    if flag >= 2:
-                        temp = stack.pop()
-                        result = stack.pop() + temp
-                    else:
-                        result = stack.pop() + stack.pop()
-                    tokens.remove(tokens[0])
-                    stack.append(result)
-                    flag -= 1
-                elif tokens[0] == "-":
-                    if flag >= 2:
-                        temp = stack.pop()
-                        result  = stack.pop() - temp
-                    else:
-                        result = stack.pop() - stack.pop()
-                    tokens.remove(tokens[0])
-                    stack.append(result)
-                    flag -= 1
-                elif tokens[0] == "/":
-                    if flag >= 2:
-                        temp = stack.pop()
-                        result = int(stack.pop() / temp)
-                    else:
-                        result += int(stack.pop() / stack.pop())
-                    tokens.remove(tokens[0])
-                    stack.append(result)
-                    flag -= 1
-                elif tokens[0] == "*":
-                    if flag >= 2:
-                        temp = stack.pop()
-                        result = stack.pop() * temp
-                    else:
-                        result = stack.pop() * stack.pop()
-                    tokens.remove(tokens[0])
-                    stack.append(result)
-                    flag -= 1
-        return result
+        for i in range(len(tokens)):         
+            if tokens[i] == "+":
+                first = stack.pop()
+                second = stack.pop()
+                stack.append(first + second)
+            elif tokens[i] == "-":
+                first = stack.pop()
+                second = stack.pop()
+                stack.append(second - first)
+            elif tokens[i] == "/":
+                first = stack.pop()
+                second = stack.pop()
+                stack.append(int(second / first))
+            elif tokens[i] == "*":
+                first = stack.pop()
+                second = stack.pop()
+                stack.append(first * second)
+            else:
+                stack.append(int(tokens[i]))
+        return stack.pop()
             
 # leetcode 155
 class MinStack:
