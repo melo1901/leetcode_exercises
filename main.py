@@ -19,8 +19,6 @@ board = [["8","3",".",".","7",".",".",".","."]
 numbers = [2,3,4]
 target = 6
 height = [4,2,3]
-obj = MinStack()
-obj.push(1)
-obj.push(10)
-print(obj.getMin())
-#print(Solution().isValid(s))
+tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+#print(obj.getMin())
+print(Solution().evalRPN(tokens))
