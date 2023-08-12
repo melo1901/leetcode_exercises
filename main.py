@@ -21,4 +21,4 @@ target = 6
 height = [4,2,3]
 tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 #print(obj.getMin())
-print(Solution().evalRPN(tokens))
+print(Solution().generateParenthesis(2))
