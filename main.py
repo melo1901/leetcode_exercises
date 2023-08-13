@@ -20,5 +20,6 @@ numbers = [2,3,4]
 target = 6
 height = [4,2,3]
 tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+temperatures = [73,74,75,71,69,72,76,73]
 #print(obj.getMin())
-print(Solution().generateParenthesis(2))
+print(Solution().dailyTemperatures(temperatures))

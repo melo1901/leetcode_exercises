@@ -109,7 +109,42 @@ class Solution():
                 stack.pop()
                 
         backtrack(0,0)
-        return result                
+        return result
+    
+    #leetcode 739
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        # first solution, time O(n^2)
+        
+        # j = 0
+        # result = 1
+        # temp = 0
+        # answer = []
+        # for i in range(len(temperatures)):
+        #     reverse_temp = temperatures[:j:-1]
+        #     if i != len(temperatures) - 1:
+        #         try:
+        #             temp = reverse_temp.pop()
+        #             while temp <= temperatures[i]:
+        #                 result += 1
+        #                 temp = reverse_temp.pop()
+        #             answer.append(result)
+        #         except IndexError:
+        #             answer.append(0)
+        #     else:
+        #         answer.append(0)
+        #     result = 1
+        #     j += 1
+        # return answer
+        
+        result = [0] * len(temperatures)
+        stack = []
+        for i, t in enumerate(temperatures):
+            while stack and t > stack[-1][0]:
+                stackT, stackInd = stack.pop()
+                result[stackInd] = (i - stackInd)
+            stack.append([t, i])
+        return result
+          
             
 # leetcode 155
 class MinStack:
