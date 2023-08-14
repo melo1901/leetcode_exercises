@@ -144,6 +144,38 @@ class Solution():
                 result[stackInd] = (i - stackInd)
             stack.append([t, i])
         return result
+    
+    # leetcode 1614
+    def maxDepth(self, s: str) -> int:
+        # dictionary solution
+        
+        # var = {
+        #     "(": 0,
+        #     "highest": 0
+        #     }
+        # for char in s:
+        #     if char == "(":
+        #         var["("] += 1
+        #     elif char == ")":
+        #         var["("] -= 1
+        #     if var["("] > var["highest"]:
+        #         var["highest"] = var["("]
+                
+        # return var["highest"]
+        
+        # stack solution
+        
+        stack = []
+        result = 0
+        for char in s:
+            if len(stack) > result:
+                result = len(stack)
+            if char == "(":
+                stack.append(char)
+            elif char == ")":
+                stack.pop()
+                
+        return result
           
             
 # leetcode 155
