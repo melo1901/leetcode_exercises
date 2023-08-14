@@ -1,8 +1,9 @@
 from Stack.leetcode import Solution
 from Stack.leetcode import MinStack
+import time
 
 target = 6
-s = "(1+(2*3)+((8)/4))+1"
+s = "(()())(())(()(()))"
 strs = ["we", "say", ":", "yes"]
 str = "we:;say:;;:;yes"
 k = 2
@@ -22,4 +23,7 @@ height = [4,2,3]
 tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 temperatures = [73,74,75,71,69,72,76,73]
 #print(obj.getMin())
-print(Solution().maxDepth(s))
+start = time.time()
+print(Solution().removeOuterParentheses(s))
+end = time.time()
+print(float(end - start))

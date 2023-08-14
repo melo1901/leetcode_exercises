@@ -176,6 +176,50 @@ class Solution():
                 stack.pop()
                 
         return result
+    
+    # leetcode 1021
+    def removeOuterParentheses(self, s: str) -> str:
+        # first working solution
+        
+        # flag = 0
+        # stack = []
+        # for i in range(len(s)):
+        #     if flag == 0:
+        #         stack.append([s[i], flag])
+        #         flag += 1
+        #     else:
+        #         if s[i] == "(":
+        #             flag += 1
+        #             stack.append([s[i], flag])
+        #         else:
+        #             flag -= 1
+        #             stack.append([s[i], flag])
+        # str = ""
+        # for item in stack:
+        #     if item[1] > 0:
+        #         str += item[0]
+        # return str
+        
+        flag = 0
+        stack = []
+        for char in s:
+            if flag == 0:
+                stack.append(char)
+                flag += 1
+                stack.pop()
+            else:
+                if char == "(":
+                    flag += 1
+                    stack.append(char)
+                else:
+                    flag -= 1
+                    stack.append(char)
+                    if flag == 0:
+                        stack.pop()
+                        
+        return ''.join(stack)
+            
+                
           
             
 # leetcode 155
