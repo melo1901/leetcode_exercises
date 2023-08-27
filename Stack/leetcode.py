@@ -1,6 +1,11 @@
 from typing import List
-import math
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+    
 class Solution():
     # leetcode 20
     def isValid(self, s: str) -> bool:    
@@ -218,6 +223,35 @@ class Solution():
                         stack.pop()
                         
         return ''.join(stack)
+    
+    #leetcode 897
+    def increasingBST(self, root: TreeNode) -> TreeNode:
+        stack = []
+        result = []
+        for x in root:
+            if x != None:
+                stack.append(x)
+        stack = sorted(stack)
+        for x in range(len(stack)):
+            result.append(stack[x])
+            if x != len(stack) - 1:
+                result.append(None)
+        
+        return result
+    
+    # leetcode 682
+    def calPoints(self, operations: List[str]) -> int:
+        stack = []
+        for i in operations:
+            if i == "C":
+                stack.pop()
+            elif i == "D":
+                stack.append(int(stack[-1] * 2))
+            elif i == "+":
+                stack.append(int(stack[-1] + stack[-2]))
+            else:
+                stack.append(int(i))
+        return sum(stack)
             
                 
           

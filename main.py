@@ -1,6 +1,5 @@
-from Stack.leetcode import Solution
+from Stack.leetcode import Solution, TreeNode
 from Stack.leetcode import MinStack
-import time
 
 target = 6
 s = "(()())(())(()(()))"
@@ -22,8 +21,7 @@ target = 6
 height = [4,2,3]
 tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 temperatures = [73,74,75,71,69,72,76,73]
-#print(obj.getMin())
-start = time.time()
-print(Solution().removeOuterParentheses(s))
-end = time.time()
-print(float(end - start))
+root = [5,1,7]
+operations = ["5","2","C","D","+"]
+solution = Solution()
+print(solution.calPoints(operations))
