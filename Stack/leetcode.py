@@ -255,18 +255,40 @@ class Solution():
     
     # leetcode 844
     def backspaceCompare(self, s: str, t: str):
+        # first version
+        # s_stack = []
+        # t_stack = []
+        # for s in s:
+        #     if s != "#":
+        #         s_stack.append(s)
+        #     elif len(s_stack) > 0:
+        #         s_stack.pop()
+        # for t in t:
+        #     if t != "#":
+        #         t_stack.append(t)
+        #     elif len(t_stack) > 0:
+        #         t_stack.pop()
+                
+        # return s_stack == t_stack
+    
+        # improved
         s_stack = []
         t_stack = []
-        for s in s:
-            if s != "#":
-                s_stack.append(s)
-            elif len(s_stack) > 0:
+        s_len = len(s)
+        t_len = len(t)
+        counter = 0
+        while counter < max(s_len, t_len):
+            if counter < s_len and s[counter] != "#":
+                s_stack.append(s[counter])
+            elif len(s_stack) > 0 and counter < s_len:
                 s_stack.pop()
-        for t in t:
-            if t != "#":
-                t_stack.append(t)
-            elif len(t_stack) > 0:
+                
+            if counter < t_len and t[counter] != "#":
+                t_stack.append(t[counter])
+            elif len(t_stack) > 0 and counter < t_len:
                 t_stack.pop()
+            counter += 1
+                
         return s_stack == t_stack
             
             
