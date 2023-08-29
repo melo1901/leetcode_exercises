@@ -252,6 +252,23 @@ class Solution():
             else:
                 stack.append(int(i))
         return sum(stack)
+    
+    # leetcode 844
+    def backspaceCompare(self, s: str, t: str):
+        s_stack = []
+        t_stack = []
+        for s in s:
+            if s != "#":
+                s_stack.append(s)
+            elif len(s_stack) > 0:
+                s_stack.pop()
+        for t in t:
+            if t != "#":
+                t_stack.append(t)
+            elif len(t_stack) > 0:
+                t_stack.pop()
+        return s_stack == t_stack
+            
             
                 
           
